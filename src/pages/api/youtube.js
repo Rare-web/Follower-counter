@@ -5,7 +5,7 @@ export default async (req, res) => {
     const id = req.body;
 
     const response = await fetch(
-      `https://youtube.googleapis.com/youtube/v3/channels?part=statistics&id=${id}&key=AIzaSyBcty42aWiTVeXeYW09Gu1DP_OBmipqbHQ`,
+      `https://youtube.googleapis.com/youtube/v3/channels?part=statistics&id=${id}&key=${process.env.google_Api_key}`,
     );
     const json = await response.json();
     const subscriberCount = json.items[0].statistics.subscriberCount;
